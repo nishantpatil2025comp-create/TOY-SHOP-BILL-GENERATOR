@@ -1,92 +1,196 @@
-TOY  SHOP BILL GENERATOR
+RESEARCH  : 
+
+Small and medium toy shops often calculate bills manually — which is time-consuming and error-prone.
+
+A computerized bill generator ensures:
+
+Faster checkout process.
+
+Fewer calculation mistakes.
+
+Easier updates in prices or tax.
 
 
 
- RESEARCH  : 
+⚙ Technologies Used:
 
-In the toy shop when ever anyone shop  various types of toy .
-When shopping complete they went to bill counter and gave the shopping toys to 
-counter and the shopkeeper give a bill for all the shopping . In the bill for all the shopping does is as per , first there is the shop name in bold letters also address of shop
-Then after all the details of customer like name , telephone number and customer id and so on etc…
+Programming Language: C
+
+Concepts Covered:
+
+Loops (while)
+
+Conditional statements (switch / if)
+
+Arithmetic operations for billing
+
+Input/output handling with scanf() and printf()
+
+
+
 
 
 ANALYSE :
 
 
-A toy shop bill, or receipt, details products, quantities, unit prices, and total costs, often incorporating GST and discounts, while the underlying software handles inventory, sales analysis, and customer loyalty for effi incient business operations. Key features of toy shop billing software include real-time inventory management, automated reordering, GST compliance, and customer management, enabling better decision-making and customer satisfaction.
-In the shop there is ‘ibi code’ on   all the products that implies the amount/ price  of product .
-By scanning on the a ibi scaning machine  . after that scanning all product with there names and  price of the product .
+System Inputs:
+
+Toy code or number (1–6)
+
+Quantity for each item
+
+Option to continue shopping (Yes/No)
+
+
+ System Process:
+
+Match item code with price.
+
+Multiply quantity × price.
+
+Add each item’s total to overall total.
+
+Optionally, apply discount or GST.
+
+
+System Outputs:
+
+List of purchased items (optional)
+
+Final total amount
+
+Thank you message / bill summary
+
 
 IDEAT :
 
 
-For the efficient business bill should be generated  with all correct details of customer
-In the bill of all product that purchased  by customer , there is 
-List of all product and price ahead it , all these activity is run by a program .
-In that program we fist print name of shop and then all details of customer 
-, date of purchased product also the time of purchase  and invoice , there are than a gang of activities.there is all the invoice of product purchased by customer like GST , discount price .also the ways of payment like UPI, CASH PAYMENT , CREADIT CARD PAYMENT , etc … .
+Possible Features:
 
+1. Basic Version (Current)
+
+Menu of toys
+
+User input of choice & quantity
+
+Total amount printed
+
+
+
+2. Intermediate Version
+
+Add GST (e.g., 5%)
+
+Add discount (e.g., 10% for bills above ₹5000)
+
+Display summary of all items purchased
+
+
+
+3. Advanced Version (Future Idea)
+
+Store data in a file (using file handling in C)
+
+Generate printed bill receipt (text file)
+
+Use arrays/structures for item details
+
+Real-time price updates
 
 BUILD:
   
- #include <stdio.h>
+#include <stdio.h>
 
 int main() {
-    
-  int total;
-    char name, customerid;
-    printf(" ROY TOY SUPER SHOP\n");
-    printf("====================\n\n\n");
-    printf("at ASHOKA PALACE AMRAVATI , MAHARASHTRA\n\n\n");
-    printf(" wellcome to roy toy shop\n\n");
-    printf("enter your name:\n\n ");
-    scanf("%s", &name);
-    printf("enter your customer id:\n\n");
-    scanf("%s",&customerid);
-    printf("YOUR LIST OF PRODUCTS \n 1) barbie doll set  -999 rupees\n 2) RC car - 799 rupees \n 3) Cricket bat - 1299rupees\n 4) football-988\n 5)wooden horse-399\n\n\n\n");
-total= 999+799+1299+988+399;
-printf("total price: %d\n\n", total );
- printf("THANKS FOR SHOPPING ");
+    int code, qty;
+    float price = 0, total, gst, final_amount;
+
+    printf("=== MS TOY SHOP ===\n");
+    printf("1. Lego Set - 1200\n");
+    printf("2. Barbie Doll - 1300\n");
+    printf("3. Car/Bike - 988\n");
+    printf("4. Remote Car - 2000\n");
+    printf("5. Wooden Horse - 677\n");
+    printf("6. Football - 999\n");
+
+    printf("\nEnter Toy Code (1-6): ");
+    scanf("%d", &code);
+
+    printf("Enter Quantity: ");
+    scanf("%d", &qty);
+
+    if (code == 1) price = 1200;
+    else if (code == 2) price = 1300;
+    else if (code == 3) price = 988;
+    else if (code == 4) price = 2000;
+    else if (code == 5) price = 677;
+    else if (code == 6) price = 999;
+    else {
+        printf("Invalid code!\n");
+        return 0;
+    }
+
+    total = price * qty;
+    gst = total * 0.18;             
+    final_amount = total + gst;
+
+    printf("\n--- BILL ---\n");
+    printf("Price (Without GST): Rs. %.2f\n", total);
+    printf("GST (18%%): Rs. %.2f\n", gst);
+    printf("Final Amount (With GST): Rs. %.2f\n", final_amount);
+
     return 0;
 }
 
-           
-
-
-TESTING: 
-ROY TOY SUPER SHOP
-====================
-
-
-at ASHOKA PALACE AMRAVATI , MAHARASHTRA
-
-
- wellcome to roy toy shop
-
-enter your name:
-
- nishant
-enter your customer id:
-
-nvnv
-YOUR LIST OF PRODUCTS 
- 1) barbie doll set  -999 rupees
- 2) RC car - 799 rupees 
- 3) Cricket bat - 1299rupees
- 4) football-988
- 5)wooden horse-399
 
 
 
-total price 4588
+TESTING:
 
-THANKS FOR SHOPPING 
 
-=== Code Execution Success
+=== MS TOY SHOP ===
+1. Lego Set - 1200
+2. Barbie Doll - 1300
+3. Car/Bike - 988
+4. Remote Car - 2000
+5. Wooden Horse - 677
+6. Football - 999
+
+Enter Toy Code (1-6): 1
+Enter Quantity: 3
+
+--- BILL ---
+Price (Without GST): Rs. 3600.00
+GST (18%): Rs. 648.00
+Final Amount (With GST): Rs. 4248.00
+
+
+
+
+=== MS TOY SHOP ===
+1. Lego Set - 1200
+2. Barbie Doll - 1300
+3. Car/Bike - 988
+4. Remote Car - 2000
+5. Wooden Horse - 677
+6. Football - 999
+
+Enter Toy Code (1-6): 8
+Enter Quantity: 6
+Invalid code!
+
+
+
+
+
+
+
+
 
 
 
 IMPLEMENTATION:
+
 
 
 
